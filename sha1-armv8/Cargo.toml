@@ -1,0 +1,30 @@
+[package]
+name = "sha1-armv8"
+version = "0.1.0"
+authors = ["RustCrypto Developers"]
+license = "MIT OR Apache-2.0"
+description = "SHA-1 hash function using ARM crypto extension"
+documentation = "https://docs.rs/sha1-armv8"
+repository = "https://github.com/RustCrypto/hashes"
+keywords = ["crypto", "sha1", "hash", "digest"]
+categories = ["cryptography", "no-std"]
+
+[dependencies]
+digest = "0.8"
+block-buffer = "0.7"
+opaque-debug = "0.2"
+
+[dev-dependencies]
+digest = { version = "0.8", features = ["dev"] }
+hex-literal = "0.1"
+
+[features]
+default = ["std"]
+std = ["digest/std"]
+nocheck = []
+
+[workspace]
+
+[package.metadata.docs.rs]
+rustc-args = ["-C", "target-feature=+crypto"]
+rustdoc-args = ["-C", "target-feature=+crypto"]
